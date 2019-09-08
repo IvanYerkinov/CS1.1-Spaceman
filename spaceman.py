@@ -4,13 +4,20 @@ class gameEn:
         # Initialise
         self.word = list(word)
         self.shownWord = list(word)
-        self.tIncGuess = 7
+        self.tIncGuess = 0
         self.nIncGuess = 0
         self.gLetter = []
         self.incLetter = []
 
         for l in range(0, len(self.shownWord)):
             self.shownWord[l] = '_'
+
+        for l in range(0, len(self.word)):
+            self.word[l] = self.word[l].lower()
+
+        self.tIncGuess = len(word)
+        if self.tIncGuess > 10:
+            self.tIncGuess = 10
 
     def mainGameLoop(self):
         # Main loop goes here
@@ -28,6 +35,8 @@ class gameEn:
 
     def guessLetter(self, letter):
         # Guess letter
+        letter = letter.lower()
+
         if len(letter) > 1:
             return True
 
@@ -58,6 +67,7 @@ class gameEn:
 
     def printLose(self):
         print("\033[1;31;40m" + "YOU ARE THE LOSE" + "\033[1;37;40m")
+        print("The correct word was: " + str(self.word) + ".")
 
     def printHUD(self):
         print('\n' * 100)
@@ -69,6 +79,6 @@ class gameEn:
         print("Total Guesses: " + str(self.gLetter))
 
 
-game = gameEn("Test")
+game = gameEn("Apple")
 
 game.mainGameLoop()
