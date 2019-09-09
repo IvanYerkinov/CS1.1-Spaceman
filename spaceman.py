@@ -1,3 +1,21 @@
+import random
+
+
+def load_word():
+
+    # f = open('words.txt', 'r')
+    # words_list = f.readlines()
+    # f.close()
+    #
+    # words_list = words_list[0].split(' ')
+
+    with open('words.txt', 'r') as f:
+        words_list = f.read().split(' ')
+
+    secret_word = random.choice(words_list)
+    return secret_word
+
+
 class gameEn:
 
     def __init__(self, word):
@@ -18,6 +36,8 @@ class gameEn:
         self.tIncGuess = len(word)
         if self.tIncGuess > 10:
             self.tIncGuess = 10
+        elif self.tIncGuess < 3:
+            self.tIncGuess = 3
 
     def mainGameLoop(self):
         # Main loop goes here
@@ -79,6 +99,6 @@ class gameEn:
         print("Total Guesses: " + str(self.gLetter))
 
 
-game = gameEn("Apple")
+game = gameEn(load_word())
 
 game.mainGameLoop()
