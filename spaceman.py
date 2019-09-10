@@ -45,9 +45,10 @@ class gameEn:
         while gameLoop:
             self.printHUD()
             while self.guessLetter(input("Please guess a letter\n")):
-                print()
+                pass
             if self.word == self.shownWord:
                 gameLoop = False
+                printHUD()
                 self.printWin()
             if self.tIncGuess == self.nIncGuess:
                 gameLoop = False
@@ -92,8 +93,7 @@ class gameEn:
     def printHUD(self):
         print('\n' * 100)
         print("SPACEMAN")
-        temp = self.tIncGuess - self.nIncGuess
-        print("Guesses left: " + str(temp) + "\n")
+        print("Guesses left: " + str(self.tIncGuess - self.nIncGuess) + "\n")
         print(str(self.shownWord) + "\n")
         print("Incorrect Guesses: " + str(self.incLetter))
         print("Total Guesses: " + str(self.gLetter))
