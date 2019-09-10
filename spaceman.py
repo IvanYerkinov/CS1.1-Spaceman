@@ -48,10 +48,11 @@ class gameEn:
                 pass
             if self.word == self.shownWord:
                 gameLoop = False
-                printHUD()
+                self.printHUD()
                 self.printWin()
             if self.tIncGuess == self.nIncGuess:
                 gameLoop = False
+                self.printHUD()
                 self.printLose()
 
     def guessLetter(self, letter):
