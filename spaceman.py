@@ -100,6 +100,20 @@ class gameEn:
         print("Total Guesses: " + str(self.gLetter))
 
 
-game = gameEn(load_word())
+playing = True
 
-game.mainGameLoop()
+while(playing):
+    game = gameEn(load_word())
+
+    game.mainGameLoop()
+
+    print()
+
+    temp = True
+    inp = input("Would you like to quit y/n?\n")
+    while temp:
+        if inp == 'y':
+            playing = False
+            temp = False
+        elif inp == 'n':
+            temp = False
