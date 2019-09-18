@@ -99,21 +99,24 @@ class gameEn:
         print("Incorrect Guesses: " + str(self.incLetter))
         print("Total Guesses: " + str(self.gLetter))
 
+    def play(self):
+        self.playing = True
 
-playing = True
+        while(self.playing):
 
-while(playing):
-    game = gameEn(load_word())
+            self.mainGameLoop()
 
-    game.mainGameLoop()
+            print()
 
-    print()
+            temp = True
+            inp = input("Would you like to quit y/n?\n")
+            while temp:
+                if inp == 'y':
+                    self.playing = False
+                    temp = False
+                elif inp == 'n':
+                    temp = False
 
-    temp = True
-    inp = input("Would you like to quit y/n?\n")
-    while temp:
-        if inp == 'y':
-            playing = False
-            temp = False
-        elif inp == 'n':
-            temp = False
+
+g = gameEn(load_word())
+g.play()
