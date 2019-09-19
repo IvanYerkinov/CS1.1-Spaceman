@@ -119,4 +119,4 @@ class gameEn:
 
 
 g = gameEn(load_word())
-g.play()
+# g.play()

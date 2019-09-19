@@ -17,6 +17,12 @@ def test_badGuessIncrease():
     assert cl.nIncGuess == 1
 
 
+def test_guessLoadWord():
+    cl = spaceman.gameEn("test")
+    assert len(cl.word) == 4
+
+
+test_guessLoadWord()
 test_guessLetterTrue()
 test_guessLetterFalse()
 test_badGuessIncrease()
